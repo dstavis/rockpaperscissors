@@ -28,7 +28,7 @@ window.addEventListener('load', setup)
 
 // GAMEPLAY
 function buttonHandler(eventObject){
-  playerChoice = parseInt(event.target.id)
+  playerChoice = parseInt(event.currentTarget.id)
   run()
 }
 
