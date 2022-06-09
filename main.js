@@ -1,48 +1,48 @@
-
 var labelOptions =
 {
-  normal: ["rock", "paper", "scissors"],
+  normal: ["rock", "scissors", "paper"],
   pokemon: ["charmander", "bulbasaur", "squirtle"],
-  rpg: ["boulder", "parchment", "shears"],
+  rpg: ["boulder", "shears", "parchment" ]
 }
 const capitalize = ([ firstLetter, ...remainingLetters ]) => {
   return firstLetter.toUpperCase() + remainingLetters.join('')
 }
-var currentLabels = labelOptions.pokemon
+var playerChoice;
+
+var currentLabels = labelOptions.normal
+
 currentLabels = currentLabels.map( (label) => capitalize(label) )
 
+// SETUP
+function setup(){
+  view.queryContainers()
+  view.queryChoiceButtons()
 
-var playerChoice;
-var option1 = document.getElementById("0")
-var option2 = document.getElementById("1")
-var option3 = document.getElementById("2")
+  view.option1.addEventListener("click", buttonHandler)
+  view.option2.addEventListener("click", buttonHandler)
+  view.option3.addEventListener("click", buttonHandler)
 
-option1.innerText = currentLabels[0]
-option2.innerText = currentLabels[1]
-option3.innerText = currentLabels[2]
+  view.displayChoiceLabels(currentLabels)
+}
+window.addEventListener('load', setup)
 
-option1.addEventListener("click", buttonHandler)
-option2.addEventListener("click", buttonHandler)
-option3.addEventListener("click", buttonHandler)
-
+// GAMEPLAY
 function buttonHandler(eventObject){
   playerChoice = parseInt(event.target.id)
   run()
 }
 
 function run(){
-  console.log("player", currentLabels[playerChoice]) //log
-
   var randomNumber = Math.floor(Math.random() * 3)
   var computerChoice = randomNumber;
 
-  console.log("computer", currentLabels[computerChoice]) //log
+  view.displayChoices(playerChoice, computerChoice)
 
   if(playerChoice === 0 && computerChoice === 1 || playerChoice === 1 && computerChoice === 2 || playerChoice === 2 && computerChoice === 0){
-    console.log("WIN")
+    view.displayOutcome("WIN")
   } else if(playerChoice === computerChoice) {
-    console.log("DRAW")
+    view.displayOutcome("DRAW")
   } else {
-    console.log("LOSE")
+    view.displayOutcome("LOSE")
   }
 }
