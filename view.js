@@ -1,6 +1,10 @@
 const assets = {
-  normal: ["./assets/happy-rocks.png", "./assets/happy-scissors.png", "./assets/happy-paper.png"]
+  normal: ["./assets/happy-rocks.png", "./assets/happy-scissors.png", "./assets/happy-paper.png"],
+  pokemon: ["./assets/charmander.png", "./assets/bulbasaur.png", "./assets/squirtle.png"]
 }
+var activeLabel = "pokemon"
+
+var currentAsset = assets[activeLabel];
 
 const view = {
   option1: undefined,
@@ -9,23 +13,23 @@ const view = {
   choices: undefined,
   output: undefined,
   displayChoiceLabels: function(labels) {
-    this.option1.innerText = labels[0]
+    this.option1.children[0].innerText = labels[0];
     var image = document.createElement("img")
     image.setAttribute("width", "50px")
     image.setAttribute("height", "50px")
-    image.setAttribute("src", assets.normal[0])
+    image.setAttribute("src", currentAsset[0])
     this.option1.append(image)
 
-    this.option2.innerText = labels[1]
+    this.option2.children[0].innerText = labels[1]
     // image = document.createElement("img")
     image = image.cloneNode()
-    image.setAttribute("src", assets.normal[1])
+    image.setAttribute("src", currentAsset[1])
     this.option2.append(image)
 
-    this.option3.innerText = labels[2]
+    this.option3.children[0].innerText = labels[2]
     // image = document.createElement("img")
     image = image.cloneNode()
-    image.setAttribute("src", assets.normal[2])
+    image.setAttribute("src", currentAsset[2])
     this.option3.append(image)
   },
   queryChoiceButtons: function(){
@@ -48,5 +52,5 @@ const view = {
   displayChoices: function(playerChoice, computerChoice){
     console.log("player", currentLabels[playerChoice])
     console.log("computer", currentLabels[computerChoice])
-  },
+  }
 }

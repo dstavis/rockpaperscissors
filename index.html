@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <head>
   <link rel="stylesheet" href="./style.css">
-  <title>Boulder Parchment Shears</title>
+  <title>Rock Paper Scissors</title>
 
 </head>
 
 <body>
 
   <main>
-    <section id="playerChoicesContainer">
-        <button id="0">A</button>
-        <button id="1">B</button>
-        <button id="2">C</button>
+
+    <section class="screen-border">
     </section>
-    <section id="outputContainer">
-      <p></p>
+    <section id="screen">
+
+      <section id="battlefield">
+      </section>
+
+      <section id="playerChoicesContainer">
+          <button id="0" class="game-box">
+            <p>A</p>
+          </button>
+          <button id="1" class="game-box">
+            <p>B</p>
+          </button>
+          <button id="2" class="game-box">
+            <p>C</p>
+          </button>
+      </section>
+
+      <section id="outputContainer" class="game-box">
+        <p></p>
+      </section>
+
     </section>
+
+    <section class="screen-border">
+    </section>
+
+
   </main>
 
   <script type="text/javascript" src="./view.js"></script>

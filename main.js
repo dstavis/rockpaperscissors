@@ -9,7 +9,9 @@ const capitalize = ([ firstLetter, ...remainingLetters ]) => {
 }
 var playerChoice;
 
-var currentLabels = labelOptions.normal
+var activeLabel = "pokemon"
+
+var currentLabels = labelOptions[activeLabel]
 
 currentLabels = currentLabels.map( (label) => capitalize(label) )
 
