@@ -43,14 +43,29 @@ const view = {
   },
   displayOutcome: function(condition){
     var messages = {
-      win: "WIN",
-      draw: "DRAW",
-      lose: "LOSE"
+      win: "Your move was super effective! You WIN.",
+      draw: "It's not very effective...it's a DRAW.",
+      lose: "The opponent's move was super effective! You LOSE."
     }
-    console.log(messages[condition.toLowerCase()])
+    // console.log(messages[condition.toLowerCase()])
+    var message = document.createElement("p")
+    message.innerText = `${messages[condition.toLowerCase()]}`
+    this.output.appendChild(message)
   },
   displayChoices: function(playerChoice, computerChoice){
-    console.log("player", currentLabels[playerChoice])
-    console.log("computer", currentLabels[computerChoice])
+    // Clear any old messages
+    this.output.innerText = ""
+
+    // Create a new paragraph with the message and add it
+    var message = document.createElement("p")
+    message.innerText = `You send out ${currentLabels[playerChoice]}!`
+    this.output.appendChild(message)
+
+    message = document.createElement("p")
+    message.innerText = `Opponent sends out ${currentLabels[computerChoice]}!`
+    this.output.appendChild(message)
+
+    // console.log("player", currentLabels[playerChoice])
+    // console.log("computer", currentLabels[computerChoice])
   }
 }
