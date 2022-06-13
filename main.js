@@ -2,7 +2,7 @@ var labelOptions =
 {
   normal: ["rock", "scissors", "paper"],
   pokemon: ["charmander", "bulbasaur", "squirtle"],
-  pokecomplex: ["bulbasaur", "charmander", "squirtle", "pikachu", "geodude"]
+  pokecomplex: ["bulbasaur", "charmander", "squirtle", "pikachu", "geodude"],
   rpg: ["boulder", "shears", "parchment" ]
 }
 const capitalize = ([ firstLetter, ...remainingLetters ]) => {

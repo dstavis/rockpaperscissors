@@ -1,6 +1,7 @@
 const assets = {
   normal: ["./assets/happy-rocks.png", "./assets/happy-scissors.png", "./assets/happy-paper.png"],
-  pokemon: ["./assets/charmander.png", "./assets/bulbasaur.png", "./assets/squirtle.png"]
+  pokemon: ["./assets/charmander.png", "./assets/bulbasaur.png", "./assets/squirtle.png"],
+  pokecomplex: ["./assets/bulbasaur.png", "./assets/charmander.png", "./assets/squirtle.png", "./assets/pikachu.png", "./assets/geodude.png"]
 }
 var activeLabel = "pokemon"
 
