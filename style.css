@@ -58,6 +58,10 @@ button{
   border-image: url("./assets/frame-hd.png") 42 round;
 }
 
+.game-box.small {
+  border-width: 12px;
+}
+
 /*  */
 
 
@@ -113,7 +117,7 @@ main {
 }
 
 #screen button{
-
+  width: 150px;
 }
 
 #playerChoicesContainer{
@@ -138,7 +142,10 @@ main {
 
   /* padding: 10px; */
 
-  box-sizing: border-box;
+
+
+  /* box-sizing: border-box; */
+  margin: 2px;
 
   height: 30%;
   width: 100%;
