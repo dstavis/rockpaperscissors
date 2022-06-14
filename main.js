@@ -4,6 +4,14 @@ const capitalize = ([ firstLetter, ...remainingLetters ]) => {
   return firstLetter.toUpperCase() + remainingLetters.join('')
 }
 
+function bothEven(numberA, numberB){
+  return numberA % 2 === 0 && numberB % 2 === 0
+}
+
+function bothOdd(numberA, numberB){
+  return numberA % 2 !== 0 && numberB % 2 !== 0
+}
+
 // END utility functions
 
 // var playerChoice;
@@ -17,12 +25,7 @@ const capitalize = ([ firstLetter, ...remainingLetters ]) => {
 
 // SETUP
 function setup(){
-  // TODO: Refactor this to use the new Game, Player, View class OOP structure
-
-  // TODO: Add an event listener to the parent, instead of each button individually. Then make the eventHandler do some conditional logic to check which button was clicked.
-
-
-  // instead, show the "pick version" screen, and add one or more event listeners to start a game for the selected version. When that game starts, a new game object should be created (with two players), and
+  // instead, show the "pick version" screen, and add one or more event listeners to start a game for the selected version. When that game starts, a new game object should be created (with two players)
   // When we show the "pick version" screen, the output dialogue should be hidden, and there should be two buttons on the screen. One selects the simple game mode, and one selects the complex game mode
 
   document.querySelector('#mode-select').addEventListener("click", modeSelectClickHandler)
@@ -36,14 +39,14 @@ window.addEventListener('load', setup)
 // GAMEPLAY
 
 function modeSelectClickHandler(eventObject){
-  if(event.target.id = "simple-mode"){
+  if(event.target.id === "simple-mode"){
     // hide the mode select section
-    document.querySelector('#mode-select').classList.add("hidden")
+    View.hide(document.querySelector('#mode-select'))
     // start game in simple mode
     startGame("simple")
   } else if (event.target.id = "complex-mode"){
     // hide the mode select section
-    document.querySelector('#mode-select').classList.add("hidden")
+    View.hide(document.querySelector('#mode-select'))
     // start game in complex mode
     startGame("complex")
   }
@@ -53,16 +56,4 @@ function startGame(mode){
   // instantiate a game object in the selected mode
   var activeGame = new Game(mode)
   activeGame.start()
-}
-
-
-
-function makeComparison(){
-
-  // var randomNumber = Math.floor(Math.random() * 3)
-  // var computerChoice = randomNumber;
-  //
-  // view.displayChoices(playerChoice, computerChoice)
-
-
 }

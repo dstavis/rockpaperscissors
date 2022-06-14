@@ -2,8 +2,7 @@ class Game {
   static activeGame;
 
   constructor(mode){
-    Game.activeGame = this;
-    this.mode = mode || "simple";
+    this.mode = mode;
     this.players = [];
     this.rounds = 0;
     this.labels = Game.#labelOptions[mode];
@@ -11,6 +10,7 @@ class Game {
     this.view = new View(this)
 
     this.setup()
+    Game.activeGame = this;
   }
 
   setup(){
@@ -33,7 +33,7 @@ class Game {
 
       var userChoiceID = parseInt(eventObject.target.closest("button").id)
       user.makeChoice(activeGame.labels[userChoiceID])
-      var computerChoiceID = computer.makeRandomChoice()
+      var computerChoiceID = computer.makeRandomChoice(activeGame.mode)
       computer.makeChoice(activeGame.labels[computerChoiceID])
 
       activeGame.determineWinner(userChoiceID, computerChoiceID)
@@ -44,7 +44,7 @@ class Game {
     if(this.mode === "simple"){
       var result = this.#determineWinnerSimple(userChoice, computerChoice)
     } else if(this.mode === "complex"){
-      console.log("TODO: Implement complex win logic")
+      var result = this.#determineWinnerComplex(userChoice, computerChoice)
     }
     this.view.displayOutcome(result)
   }
@@ -61,9 +61,18 @@ class Game {
     }
   }
 
-  #determineWinnerComplex(){
-    console.log("Complex logic")
+  #determineWinnerComplex(playerChoice, computerChoice){
+    if(playerChoice === computerChoice){
+      return "DRAW"
+    }
+
+    if(bothEven(playerChoice, computerChoice) || bothOdd(playerChoice, computerChoice)){
+      return playerChoice < computerChoice ? "WIN" : "LOSE"
+    } else {
+      return playerChoice > computerChoice ? "WIN" : "LOSE"
+    }
   }
+
 
   static #labelOptions = {
     simple: ["charmander", "bulbasaur", "squirtle"],

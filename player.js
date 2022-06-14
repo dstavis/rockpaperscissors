@@ -5,7 +5,8 @@ class Player {
     this.latestChoice;
   }
 
-  makeRandomChoice(){
+  makeRandomChoice(mode){
+    var numberOfChoices = mode === "simple" ? 3 : 5
     var randomNumber = Math.floor(Math.random() * 3)
     var computerChoice = randomNumber;
     this.latestChoice = computerChoice;
