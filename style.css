@@ -21,17 +21,17 @@ button{
 
 @font-face {
   font-family: 'Pokemon';
-  src: url("Pokemon.ttf") format('truetype');
+  src: url("./assets/Pokemon.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Gameboy';
-  src: url("Early Gameboy.ttf") format('truetype');
+  src: url("./assets/Early Gameboy.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Pretendo';
-  src: url("Pretendo.ttf") format('truetype');
+  src: url("./assets/Pretendo.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -60,6 +60,10 @@ button{
 
 .game-box.small {
   border-width: 12px;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /*  */
@@ -120,7 +124,7 @@ main {
   width: 150px;
 }
 
-#playerChoicesContainer{
+#player-choices-container{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -134,7 +138,7 @@ main {
 
 
 
-#outputContainer{
+#dialogue-container{
   /* display: flex;
   flex-direction: column;
   justify-content: center; */
