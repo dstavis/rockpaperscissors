@@ -13,23 +13,27 @@
     </section>
     <section id="screen">
 
-      <section id="battlefield">
+      <section id="battlefield" class="hidden game-box">
       </section>
 
-      <section id="playerChoicesContainer">
-          <button id="0" class="game-box">
-            <p>A</p>
-          </button>
-          <button id="1" class="game-box">
-            <p>B</p>
-          </button>
-          <button id="2" class="game-box">
-            <p>C</p>
+      <section id="mode-select" class="">
+        <button id="simple-mode" class="game-box">
+          <h2>Simple Mode</h2>
+        </button>
+
+        <button id="complex-mode" class="game-box">
+          <h2>Complex Mode</h2>
+        </button>
+      </section>
+
+      <section id="user-choices-container" class="hidden">
+          <button id="example-choice-button" class="game-box small hidden">
+            <p>Example Label</p>
           </button>
       </section>
 
-      <section id="outputContainer" class="game-box">
-        <p></p>
+      <section id="dialogue-container" class="hidden game-box">
+
       </section>
 
     </section>
@@ -40,6 +44,8 @@
 
   </main>
 
+  <script type="text/javascript" src="./player.js"></script>
+  <script type="text/javascript" src="./game.js"></script>
   <script type="text/javascript" src="./view.js"></script>
   <script type="text/javascript" src="./main.js"></script>
 </body>

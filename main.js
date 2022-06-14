@@ -1,50 +1,59 @@
-var labelOptions =
-{
-  normal: ["rock", "scissors", "paper"],
-  pokemon: ["charmander", "bulbasaur", "squirtle"],
-  rpg: ["boulder", "shears", "parchment" ]
-}
+// START UTILITY FUNCTIONS
+
 const capitalize = ([ firstLetter, ...remainingLetters ]) => {
   return firstLetter.toUpperCase() + remainingLetters.join('')
 }
-var playerChoice;
 
-var activeLabel = "pokemon"
+function bothEven(numberA, numberB){
+  return numberA % 2 === 0 && numberB % 2 === 0
+}
 
-var currentLabels = labelOptions[activeLabel]
+function bothOdd(numberA, numberB){
+  return numberA % 2 !== 0 && numberB % 2 !== 0
+}
 
-currentLabels = currentLabels.map( (label) => capitalize(label) )
+// END utility functions
+
+// var playerChoice;
+//
+// var activeLabel = "pokemon"
+//
+// var currentLabels = labelOptions[activeLabel]
+//
+// currentLabels = currentLabels.map( (label) => capitalize(label) )
+
 
 // SETUP
 function setup(){
-  view.queryContainers()
-  view.queryChoiceButtons()
+  // instead, show the "pick version" screen, and add one or more event listeners to start a game for the selected version. When that game starts, a new game object should be created (with two players)
+  // When we show the "pick version" screen, the output dialogue should be hidden, and there should be two buttons on the screen. One selects the simple game mode, and one selects the complex game mode
 
-  view.option1.addEventListener("click", buttonHandler)
-  view.option2.addEventListener("click", buttonHandler)
-  view.option3.addEventListener("click", buttonHandler)
+  document.querySelector('#mode-select').addEventListener("click", modeSelectClickHandler)
 
-  view.displayChoiceLabels(currentLabels)
+  // when a mode is selected, we should instantiate a new game with that mode, and give that game two players (one user, one computer)
+  // then we should show the game view as appropriate for that game mode, including the output section as well as buttons for each pokemon choice, which can be clicked to initiate a comparison
+  // when a comparison occurs, we should display what choices each player made, and who the winner was. We should also show a button that lets the user proceed to another match (which will present them )
 }
 window.addEventListener('load', setup)
 
 // GAMEPLAY
-function buttonHandler(eventObject){
-  playerChoice = parseInt(event.currentTarget.id)
-  run()
+
+function modeSelectClickHandler(eventObject){
+  if(event.target.id === "simple-mode"){
+    // hide the mode select section
+    View.hide(document.querySelector('#mode-select'))
+    // start game in simple mode
+    startGame("simple")
+  } else if (event.target.id = "complex-mode"){
+    // hide the mode select section
+    View.hide(document.querySelector('#mode-select'))
+    // start game in complex mode
+    startGame("complex")
+  }
 }
 
-function run(){
-  var randomNumber = Math.floor(Math.random() * 3)
-  var computerChoice = randomNumber;
-
-  view.displayChoices(playerChoice, computerChoice)
-
-  if(playerChoice === 0 && computerChoice === 1 || playerChoice === 1 && computerChoice === 2 || playerChoice === 2 && computerChoice === 0){
-    view.displayOutcome("WIN")
-  } else if(playerChoice === computerChoice) {
-    view.displayOutcome("DRAW")
-  } else {
-    view.displayOutcome("LOSE")
-  }
+function startGame(mode){
+  // instantiate a game object in the selected mode
+  var activeGame = new Game(mode)
+  activeGame.start()
 }

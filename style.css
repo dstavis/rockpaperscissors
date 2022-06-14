@@ -21,17 +21,17 @@ button{
 
 @font-face {
   font-family: 'Pokemon';
-  src: url("Pokemon.ttf") format('truetype');
+  src: url("./assets/Pokemon.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Gameboy';
-  src: url("Early Gameboy.ttf") format('truetype');
+  src: url("./assets/Early Gameboy.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Pretendo';
-  src: url("Pretendo.ttf") format('truetype');
+  src: url("./assets/Pretendo.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -56,6 +56,14 @@ button{
   border-width: 21px;
   border-style: solid;
   border-image: url("./assets/frame-hd.png") 42 round;
+}
+
+.game-box.small {
+  border-width: 12px;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /*  */
@@ -113,10 +121,10 @@ main {
 }
 
 #screen button{
-
+  width: 150px;
 }
 
-#playerChoicesContainer{
+#player-choices-container{
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -130,14 +138,26 @@ main {
 
 
 
-#outputContainer{
+#dialogue-container{
   /* display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; */
-  height: 25%;
+  flex-direction: column;
+  justify-content: center; */
+  /* align-items: center; */
+
+  /* padding: 10px; */
+
+
+
+  /* box-sizing: border-box; */
+  margin: 2px;
+
+  height: 30%;
   width: 100%;
 
+}
 
-
+#outputContainer > p {
+  line-height: 1.5;
+  margin: 5px;
+  padding: 0;
 }
