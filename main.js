@@ -39,12 +39,12 @@ window.addEventListener('load', setup)
 // GAMEPLAY
 
 function modeSelectClickHandler(eventObject){
-  if(event.target.id === "simple-mode"){
+  if(event.target.closest("button").id === "simple-mode"){
     // hide the mode select section
     View.hide(document.querySelector('#mode-select'))
     // start game in simple mode
     startGame("simple")
-  } else if (event.target.id = "complex-mode"){
+  } else if (event.target.closest("button").id === "complex-mode"){
     // hide the mode select section
     View.hide(document.querySelector('#mode-select'))
     // start game in complex mode
