@@ -33,6 +33,15 @@ class View {
     return document.querySelector("#dialogue-container")
   }
 
+  displayScores(){
+    var userScoreContainer = document.querySelector("#user-score-container")
+    View.show(userScoreContainer)
+    var computerScoreContainer = document.querySelector("#computer-score-container")
+    View.show(computerScoreContainer)
+
+    userScoreContainer.firstElementChild.innerText = `Score: ${this.game.players[0].score}`
+    computerScoreContainer.firstElementChild.innerText = `Score: ${this.game.players[1].score}`
+  }
 
   displayChoiceButtons(){
 
