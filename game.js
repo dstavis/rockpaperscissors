@@ -20,6 +20,7 @@ class Game {
 
   start(){
     this.view.displayChoiceButtons()
+    this.view.displayScores()
     this.view.getUserChoicesContainer().addEventListener("click", this.userClickedChoiceButton)
     this.view.displayDialogueBox()
   }
@@ -46,6 +47,14 @@ class Game {
     } else if(this.mode === "complex"){
       var result = this.#determineWinnerComplex(userChoice, computerChoice)
     }
+
+    // increase the score of the winner
+    if(result === "WIN"){
+      this.players[0].score++
+    } else if (result === "LOSE"){
+      this.players[1].score++
+    }
+    this.view.displayScores()
     this.view.displayOutcome(result)
   }
 

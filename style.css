@@ -15,6 +15,7 @@ button{
   font-size: inherit;
   letter-spacing: inherit;
   background-color: white;
+  padding: 0;
 }
 
 /* CSS RESET */
@@ -120,8 +121,8 @@ main {
   mix-blend-mode: multiply;
 }
 
-#screen button{
-  width: 150px;
+#screen button.small{
+  width: 140px;
 }
 
 #player-choices-container{
@@ -133,7 +134,7 @@ main {
   height: 30%;
   width: 100%;
 } button {
-  margin: 2px;
+  margin: 1px;
 }
 
 
