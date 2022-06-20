@@ -41,21 +41,26 @@ class Game {
     }
   }
 
+  adjustScore(result){
+    if(result.includes("WIN")){
+      this.players[0].score++
+    } else if(result.includes("LOSE")){
+      this.players[1].score++
+    }
+  }
+
   determineWinner(userChoice, computerChoice) {
+    var result;
+
     if(this.mode === "simple"){
       var result = this.#determineWinnerSimple(userChoice, computerChoice)
     } else if(this.mode === "complex"){
       var result = this.#determineWinnerComplex(userChoice, computerChoice)
     }
-
-    // increase the score of the winner
-    if(result === "WIN" || result === "FLYWIN"){
-      this.players[0].score++
-    } else if (result === "LOSE" || result === "FLYLOSE"){
-      this.players[1].score++
-    }
-    this.view.displayScores()
     this.view.displayOutcome(result)
+
+    this.adjustScore(result)
+    this.view.displayScores()
   }
 
   #determineWinnerSimple(playerChoice, computerChoice){
