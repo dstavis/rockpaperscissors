@@ -121,17 +121,37 @@ main {
   mix-blend-mode: multiply;
 }
 
+#mode-select-screen {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+#mode-select-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#mode-select-buttons > button {
+  width: 40%;
+  height: 140px;
+}
+
 #screen button.small{
   width: 140px;
 }
 
-#player-choices-container{
+#user-choices-container{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 
-  height: 30%;
+  min-height: 30%;
   width: 100%;
 } button {
   margin: 1px;
@@ -140,16 +160,7 @@ main {
 
 
 #dialogue-container{
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
-  /* align-items: center; */
 
-  /* padding: 10px; */
-
-
-
-  /* box-sizing: border-box; */
   margin: 2px;
 
   height: 30%;

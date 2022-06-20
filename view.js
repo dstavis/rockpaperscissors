@@ -53,11 +53,9 @@ class View {
     this.currentAssets.forEach((assetPath, assetIndex) => {
       button = exampleButton.cloneNode(true)
 
-      // Remove the hidden class from the example
+
       View.show(button)
-      // Set the ID
       button.id = assetIndex
-      // Set the p text to the label for that asset
       button.children[0].innerText = capitalize(this.game.labels[assetIndex])
 
       var image = document.createElement("img")
