@@ -49,9 +49,9 @@ class Game {
     }
 
     // increase the score of the winner
-    if(result === "WIN"){
+    if(result === "WIN" || result === "FLYWIN"){
       this.players[0].score++
-    } else if (result === "LOSE"){
+    } else if (result === "LOSE" || result === "FLYLOSE"){
       this.players[1].score++
     }
     this.view.displayScores()
@@ -60,8 +60,6 @@ class Game {
 
   #determineWinnerSimple(playerChoice, computerChoice){
     if(playerChoice === 0 && computerChoice === 1 || playerChoice === 1 && computerChoice === 2 || playerChoice === 2 && computerChoice === 0){
-      // view.displayOutcome("WIN")
-      // TODO: Refactor so that it's the main, not the game, that speaks to the view
       return "WIN"
     } else if(playerChoice === computerChoice) {
       return "DRAW"
@@ -73,6 +71,20 @@ class Game {
   #determineWinnerComplex(playerChoice, computerChoice){
     if(playerChoice === computerChoice){
       return "DRAW"
+    }
+
+    // Pikachu vs. Bulbasaur
+    if(playerChoice === 3 && computerChoice === 0){
+      return "FLYWIN";
+    } else if(computerChoice === 3 && playerChoice === 0){
+      return "FLYLOSE"
+    }
+
+    // Pikachu vs. Charmander
+    if(playerChoice === 1 && computerChoice === 3){
+      return "BURNWIN";
+    } else if(computerChoice === 1 && playerChoice === 3){
+      return "BURNLOSE"
     }
 
     if(bothEven(playerChoice, computerChoice) || bothOdd(playerChoice, computerChoice)){
